@@ -1,0 +1,19 @@
+{
+  "name": "antena",
+  "description": "Demonstration of the antena package",
+  "version": "0.0.0",
+  "author": {
+    "name": "Laurent Christophe",
+    "email": "lachrist@vub.ac.be"
+  },
+  "repository": "lachrist/antena-demo",
+  "license": "MIT",
+  "dependencies": {
+    "antena": "*",
+    "antena-spawn": "*",
+    "browserify": "14.4.x",
+    "commonjs-playground": "*",
+    "stdio-gui": "*"
+  },
+  "keywords": []
+}
