@@ -1,6 +1,6 @@
 
 var Spawn = require("antena-spawn/worker");
-var CommonjsPlayground = require("commonjs-playground");
+var CommonjsEditor = require("commonjs-editor");
 var Playgrounds = require("./playgrounds.js");
 var StdioGui = require("stdio-gui");
 
@@ -9,8 +9,8 @@ function noop () {}
 window.onload = function () {
   document.body.style.padding = "20px";
   var editors = {
-    child: CommonjsPlayground(document.getElementById("editor-child"), Playgrounds.child),
-    receptor: CommonjsPlayground(document.getElementById("editor-receptor"), Playgrounds.receptor)
+    child: CommonjsEditor(document.getElementById("editor-child"), Playgrounds.child),
+    receptor: CommonjsEditor(document.getElementById("editor-receptor"), Playgrounds.receptor)
   };
   var stdiogui = StdioGui(document.getElementById("stdio"), {
     onctrl: function (key) { child && key === "c" && document.getElementById("spawn").onclick() }
@@ -25,7 +25,7 @@ window.onload = function () {
       child.kill();
       child = null;
     } else {
-      child = Spawn({content:editors.child.getBundle()}, [], eval(editors.receptor.getBundle()));
+      child = Spawn(editors.child.getBundle(), [], eval(editors.receptor.getBundle()));
       stdiogui(child.stdio);
     }
   }

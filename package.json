@@ -9,11 +9,14 @@
   "repository": "lachrist/antena-demo",
   "license": "MIT",
   "dependencies": {
-    "antena": "*",
-    "antena-spawn": "*",
-    "browserify": "14.4.x",
-    "commonjs-playground": "*",
-    "stdio-gui": "*"
+    "antena": "^0.0.0",
+    "antena-spawn": "^0.0.0",
+    "browserify": "^14.4.0",
+    "commonjs-playground": "^0.0.0",
+    "stdio-gui": "^0.0.0"
   },
-  "keywords": []
+  "keywords": [
+    "antena",
+    "demonstration"
+  ]
 }

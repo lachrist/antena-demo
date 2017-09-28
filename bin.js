@@ -2,12 +2,12 @@
 var Fs = require("fs");
 var Path = require("path");
 var Browserify = require("browserify");
-var CommonjsPlaygroundBundle = require("commonjs-playground/bundle");
+var Playground = require("commonjs-editor/playground");
 
-CommonjsPlaygroundBundle(Path.join(__dirname, "receptor.js"), function (error, rplayground) {
+Playground(Path.join(__dirname, "receptor.js"), function (error, rplayground) {
   if (error)
     throw error;
-  CommonjsPlaygroundBundle(Path.join(__dirname, "child.js"), function (error, cplayground) {
+  Playground(Path.join(__dirname, "child.js"), function (error, cplayground) {
     if (error)
       throw error;
     Fs.writeFileSync(Path.join(__dirname, "playgrounds.js"), "module.exports = "+JSON.stringify({

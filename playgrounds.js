@@ -1,6 +1,6 @@
 module.exports = {
   "receptor": {
-    "initial": "\nvar Receptor = require(\"antena/receptor\");\n\nmodule.exports = Receptor({}).merge({\n  \"random\": Receptor({\n    onconnect: function (path, con) {\n      function loop () {\n        var random = Math.round(2 * 1000 * Math.random());\n        con.send(random);\n        setTimeout(loop, random);\n      }\n      loop();\n    }\n  }),\n  \"ping\": Receptor({\n    onrequest: function (method, path, headers, body, callback) {\n      callback(200, \"ok\", {}, \"pong\");\n    }\n  })\n});\n",
+    "initial": "\nvar Receptor = require(\"antena/receptor\");\n\nmodule.exports = Receptor({}).merge({\n  \"random\": Receptor({\n    onconnect: function (path, con) {\n      function loop () {\n        if (con.readyState === 1) {\n          var random = Math.round(2 * 1000 * Math.random());\n          con.send(random);\n          setTimeout(loop, random);\n        }\n      }\n      loop();\n    }\n  }),\n  \"ping\": Receptor({\n    onrequest: function (method, path, headers, body, callback) {\n      callback(200, \"ok\", {}, \"pong\");\n    }\n  })\n});\n",
     "modules": [
       "antena/receptor"
     ],

@@ -5,9 +5,11 @@ module.exports = Receptor({}).merge({
   "random": Receptor({
     onconnect: function (path, con) {
       function loop () {
-        var random = Math.round(2 * 1000 * Math.random());
-        con.send(random);
-        setTimeout(loop, random);
+        if (con.readyState === 1) {
+          var random = Math.round(2 * 1000 * Math.random());
+          con.send(random);
+          setTimeout(loop, random);
+        }
       }
       loop();
     }
