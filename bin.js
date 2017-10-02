@@ -3,6 +3,9 @@ var Fs = require("fs");
 var Path = require("path");
 var Browserify = require("browserify");
 var Playground = require("commonjs-editor/playground");
+var Minimist = require("minimist");
+
+var options = require 
 
 Playground(Path.join(__dirname, "receptor.js"), function (error, rplayground) {
   if (error)

@@ -1,5 +1,5 @@
 
-var Receptor = require("antena/receptor");
+var Receptor = require("antena/receptor/browser");
 
 module.exports = Receptor({}).merge({
   "random": Receptor({
